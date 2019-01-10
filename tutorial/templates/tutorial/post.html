@@ -1,0 +1,6 @@
+{% extends "tutorial/base.html" %}
+{% block content %}
+{%for s in posts  %}
+<p>{{s.post_texte}}</p>
+{%endfor%}
+{% endblock %}

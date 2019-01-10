@@ -46,6 +46,7 @@ body {
 
 }
 
+
 .lien_categorie{
   padding: 10px 15px;
 }
@@ -69,4 +70,15 @@ body {
 .category-forum__bottom:hover, .category-forum__bottom:active {
   background-color: #b3b3b3;
   color: rgba(0,0,0,.92);
+}
+
+.topicslinks:link, .topicslinks:visited {
+    display: block;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0 8px 8px;
+   color: rgba(0,0,0,.92);
+   text-decoration: none;
 }

@@ -13,10 +13,11 @@
 {% endif %}
 
 {%for s in topics %}
-    <div class="row">
+    <div class="row category-forum">
         <div class="col-sm-6">
-            <a href="#" >
+            <a href="{% url 'topics' uri=link pk=s.pk %}" class="topicslinks">
                 <h3>{{s.topic_titre}}</h3>
+                <p>par <strong>{{s.topic_createur}}</strong> </p>
             </a>
         </div>
         <div class="col-sm-3">

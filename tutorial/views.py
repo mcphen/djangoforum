@@ -37,7 +37,7 @@ def home(request):
 
     forum_t.append((cat, cat_forum))
 
-  return render(request, 'tutorial/home.html', locals())
+  return render(request, 'tutorial/home.html', context)
 
 def sign_in(request):
   # Get the sign-in URL
@@ -77,12 +77,12 @@ def categorie(request, pk):
 
 
 def test(request):
-  form = PostForm()
-  sujetform = TopicForm()
 
-  return render(request, 'tutorial/test.html', locals())
+
+  return render(request, 'tutorial/test1.html', locals())
 
 def nouveau_sujet(request, pk):
+  link = pk
   user = request.user
   listforum = get_object_or_404(Forum_forum, pk=pk)
   form = PostForm()
@@ -111,3 +111,7 @@ def nouveau_sujet(request, pk):
 
       return redirect('categorie', pk=pk)
   return render(request, 'tutorial/test.html', locals())
+
+def topics(request, uri, pk):
+  posts = Forum_post.objects.filter(categorie=pk)
+  return render(request, 'tutorial/post.html', locals())

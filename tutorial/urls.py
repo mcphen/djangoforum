@@ -11,5 +11,6 @@ urlpatterns = [
   path('signout', views.sign_out, name='signout'),
   path('categorie/<pk>', views.categorie, name="categorie"),
   path('test', views.test, name="test"),
-  path('nouveau_sujet/<pk>', views.nouveau_sujet, name="nouveau_sujet")
+  path('nouveau_sujet/<pk>', views.nouveau_sujet, name="nouveau_sujet"),
+  path('topics/<uri>/<pk>', views.topics, name="topics")
 ]
