@@ -1,0 +1,42 @@
+{% extends "tutorial/base.html" %}
+{% block content %}
+
+{% for categorie in forum_t %}
+  <section style="border-bottom: 2px solid #f8ad32; margin-bottom: 15px">
+        <h2>{{ categorie.0.categorie_nom }}</h2>
+  </section>
+
+  <div class="row">
+  {% for article in categorie.1 %}
+    <div class="col-sm-4">
+      <div class="category-forum">
+          <a href="{% url 'categorie' pk=article.pk  %}" class="category-forum__top">
+            <div class="row lien_categorie">
+              <div class="sm-3"><img src="{{ article.logo_forum.url }}"  width="50px" height="50px"/></div>
+              <div class="col-sm-9">
+                <div>{{ article.forum_nom }}</div>
+                <div class="category-forum__description">{{ article.forum_description }}</div>
+              </div>
+            </div>
+          </a>
+      <!--
+        <hr>
+        <a title="[CSS] Media-queries - les résolutions" href="#" class="category-forum__bottom">
+
+        <strong><span class="category-forum__last-msg">Dernier message :</span></strong>
+        <br>
+        <div class="category-forum__last-msg-link">
+        [CSS] Media-queries - les résolutions
+        </div>
+        </a>-->
+      </div>
+
+
+    </div>
+
+  {% endfor %}
+  </div>
+
+{% endfor %}
+
+{% endblock %}
