@@ -5,31 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74e2059e-bb93-4bb5-a33c-9d4bb642959e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tutorial/templates/tutorial/acc_active_email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tutorial/templates/tutorial/categories.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tutorial/templates/tutorial/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tutorial/templates/tutorial/message_confirmation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tutorial/templates/tutorial/message_envoi.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tutorial/templates/tutorial/signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tutorial/tokens.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tutorial/Procfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/auth_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/auth_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/static/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/static/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/templates/tutorial/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/templates/tutorial/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/templates/tutorial/categorie.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/templates/tutorial/categorie.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/templates/tutorial/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/templates/tutorial/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/templates/tutorial/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/templates/tutorial/post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/templates/tutorial/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/templates/tutorial/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,19 +21,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/categorie.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/home.html">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret lean-forward="true" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -60,10 +31,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tutorial/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
+            <state relative-caret-position="203">
               <caret line="58" column="36" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="36" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -73,9 +44,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/forum/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="33">
+              <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+              <folding>
+                <element signature="e#629#661#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tutorial/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="119">
               <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
@@ -84,11 +67,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/forum/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="148" column="35" selection-start-line="148" selection-start-column="35" selection-end-line="148" selection-end-column="35" />
+            <state>
+              <folding>
+                <element signature="e#306#315#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,11 +90,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="986">
               <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
               <folding>
-                <element signature="n#style#0;n#a#0;n#div#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#div#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -128,17 +111,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tutorial/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
+            <state relative-caret-position="306">
               <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
-                <element signature="e#918#1187#0" />
-                <element signature="e#1549#2661#0" />
-                <element signature="e#2678#3426#0" />
-                <element signature="e#1894#2395#0" />
-                <element signature="e#2428#2787#0" />
-                <element signature="e#2903#3697#0" />
-                <element signature="e#3731#4554#0" />
               </folding>
             </state>
           </provider>
@@ -194,13 +170,11 @@
         <option value="$PROJECT_DIR$/tutorial/static/css/app.css" />
         <option value="$PROJECT_DIR$/tutorial/templates/tutorial/categorie.html" />
         <option value="$PROJECT_DIR$/tutorial/templates/tutorial/categories.html" />
-        <option value="$PROJECT_DIR$/forum/urls.py" />
         <option value="$PROJECT_DIR$/tutorial/templates/tutorial/home.html" />
         <option value="$PROJECT_DIR$/tutorial/templates/tutorial/login.html" />
         <option value="$PROJECT_DIR$/tutorial/templates/tokens.py" />
         <option value="$PROJECT_DIR$/tutorial/tokens.py" />
         <option value="$PROJECT_DIR$/tutorial/forms.py" />
-        <option value="$PROJECT_DIR$/forum/settings.py" />
         <option value="$PROJECT_DIR$/tutorial/templates/tutorial/signup.html" />
         <option value="$PROJECT_DIR$/tutorial/templates/tutorial/message_envoi.html" />
         <option value="$PROJECT_DIR$/tutorial/urls.py" />
@@ -211,6 +185,8 @@
         <option value="$PROJECT_DIR$/tutorial/views.py" />
         <option value="$PROJECT_DIR$/tutorial/admin.py" />
         <option value="$PROJECT_DIR$/tutorial/models.py" />
+        <option value="$PROJECT_DIR$/forum/urls.py" />
+        <option value="$PROJECT_DIR$/forum/settings.py" />
       </list>
     </option>
   </component>
@@ -239,37 +215,6 @@
             <path>
               <item name="forum" type="b2602c69:ProjectViewProjectNode" />
               <item name="forum" type="462c0819:PsiDirectoryNode" />
-              <item name="forum" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="forum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="forum" type="462c0819:PsiDirectoryNode" />
-              <item name="tutorial" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="forum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="forum" type="462c0819:PsiDirectoryNode" />
-              <item name="tutorial" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="forum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="forum" type="462c0819:PsiDirectoryNode" />
-              <item name="tutorial" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="forum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="forum" type="462c0819:PsiDirectoryNode" />
-              <item name="tutorial" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="forum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="forum" type="462c0819:PsiDirectoryNode" />
-              <item name="tutorial" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="tutorial" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -354,9 +299,9 @@
     <option name="totallyTimeSpent" value="14437000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1320" height="784" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25819033" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25074404" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -370,7 +315,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.18703976" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3834116" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286385" />
       <window_info anchor="bottom" id="Educational.CheckDetails" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -461,16 +406,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/forum/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="72" selection-start-line="26" selection-start-column="72" selection-end-line="26" selection-end-column="72" />
-          <folding>
-            <element signature="e#629#661#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tutorial/graph_helper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -536,17 +471,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/message_confirmation.html">
+    <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/categorie.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+        <state relative-caret-position="102">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/signup.html">
+    <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="28" />
+        <state>
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -557,75 +504,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/categorie.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="986">
           <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tutorial/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="306">
           <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
-            <element signature="e#918#1187#0" />
-            <element signature="e#1549#2661#0" />
-            <element signature="e#2678#3426#0" />
-            <element signature="e#1894#2395#0" />
-            <element signature="e#2428#2787#0" />
-            <element signature="e#2903#3697#0" />
-            <element signature="e#3731#4554#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/admin.py">
+    <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/message_confirmation.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        <state relative-caret-position="204">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="58" column="36" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="36" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forum/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+          <folding>
+            <element signature="e#629#661#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forum/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="148" column="35" selection-start-line="148" selection-start-column="35" selection-end-line="148" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="58" column="36" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="36" />
+        <state>
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#306#315#0" expanded="true" />
           </folding>
         </state>
       </provider>

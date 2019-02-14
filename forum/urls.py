@@ -20,7 +20,7 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('forum/', include('tutorial.urls')),
+    path('', include('tutorial.urls')),
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),
