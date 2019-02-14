@@ -4,8 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from .forms import *
 from django.contrib.auth import logout
-from .graph_helper import get_user
-from .auth_helper import get_sign_in_url, get_token_from_code, store_token, store_user, remove_user_and_token
+
 
 from .models import Forum_categorie, Forum_topics, Forum_forum, Forum_post
 
@@ -22,19 +21,7 @@ from .tokens import account_activation_token
 
 from django.core.mail import EmailMessage
 
-def initialize_context(request):
-  context = {}
 
-  # Check for any errors in the session
-  error = request.session.pop('flash_error', None)
-
-  if error != None:
-    context['errors'] = []
-    context['errors'].append(error)
-
-  # Check for user in the session
-  context['user'] = request.session.get('user', {'is_authenticated': False})
-  return context
 
 
 def profil(request, id):
@@ -102,20 +89,7 @@ def activate(request, uidb64, token):
         #return HttpResponse('Activation link is invalid!')
     return render(request, 'tutorial/message_confirmation.html', locals())
 
-def callback(request):
-  # Get the state saved in session
-  expected_state = request.session.pop('auth_state', '')
-  # Make the token request
-  token = get_token_from_code(request.get_full_path(), expected_state)
 
-  # Get the user's profile
-  user = get_user(token)
-
-  # Save token and user
-  store_token(request, token)
-  store_user(request, user)
-
-  return HttpResponseRedirect(reverse('home'))
 
 
 
