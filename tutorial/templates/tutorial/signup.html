@@ -1,0 +1,25 @@
+{% extends "tutorial/base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<h1>Inscription</h1>
+
+<div class="row">
+  <div class="col-sm-">
+    <form method="post">
+    {% csrf_token %}
+
+        {{ form|crispy }}
+
+
+    <div class="form-group">
+      <input type="submit" class="btn btn-success btn-rounded" value="Je m'inscris" name="Connexion" style="background: #f98008; border: solid 1px #ffffff;">
+    </div>
+  </form>
+
+  </div>
+</div>
+
+
+
+{% endblock %}

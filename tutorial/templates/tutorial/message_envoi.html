@@ -1,0 +1,11 @@
+{% extends "tutorial/base.html" %}
+{% block content %}
+
+<div class="alert alert-success" role="alert">
+  Bonjour! Un lien de confirmation vous a été envoyé sur votre adresse mail, veuillez le confimer afin de completer l'inscription
+</div>
+<a href="{% url 'login' %}" class="nav-link">Suivant</a>
+
+
+
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends "tutorial/base.html" %}
 {% block content %}
-
+{% load crispy_forms_tags %}
 
 <section>
     Vous êtes ici : <a href="#"> Accueil</a>  <i class='fas fa-angle-right'></i> <a href="#">{{listforum.categorie.categorie_nom}}</a>  <i class='fas fa-angle-right'></i> <strong>{{listforum.forum_nom}}</strong>
@@ -8,7 +8,7 @@
 </section>
 <form action=""  method="post">
     {% csrf_token %}
-    {{sujetform.as_p}}
+    {{sujetform |crispy}}
     {{ form.as_p }}
     <input type="submit" value="envoyer" class="btn btn-primary" />
 

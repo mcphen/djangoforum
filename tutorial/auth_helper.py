@@ -1,7 +1,11 @@
 import yaml
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+
 from requests_oauthlib import OAuth2Session
 import os
 import time
+
 
 # This is necessary for testing with non-HTTPS localhost
 # Remove this if deploying to production
@@ -47,11 +51,25 @@ def store_token(request, token):
   request.session['oauth_token'] = token
 
 def store_user(request, user):
+  """user = authenticate(username=user['userPrincipalName'], email=user['mail'])  # Nous vérifions si les données sont correctes
+if user:  # Si l'objet renvoyé n'est pas None
+  login(request, user)  # nous connectons l'utilisateur
+  return True
+else:  # sinon une erreur sera affichée
+  User.objects.create_user(username=user['userPrincipalName'], email=user['mail'])
+  return False"""
+
   request.session['user'] = {
-    'is_authenticated': True,
-    'name': user['displayName'],
-    'email': user['mail'] if (user['mail'] != None) else user['userPrincipalName']
-  }
+      'is_authenticated': True,
+      'name': user['displayName'],
+      'email': user['mail'] if (user['mail'] != None) else user['userPrincipalName']
+    }
+  """userconnect = authenticate(username=user['displayName'], email=user['mail'])
+  if not userconnect:
+    login(request, userconnect,  backend='django.contrib.auth.backends.ModelBackend')
+  else:
+    User.objects.create_user(username=user['displayName'], email=user['mail'])"""
+
 
 def get_token(request):
   token = request.session['oauth_token']

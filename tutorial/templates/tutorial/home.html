@@ -1,13 +1,12 @@
 {% extends "tutorial/base.html" %}
 {% block content %}
-<a href="{% url 'test'  %}">suivant</a>
 
 {% for categorie in forum_t %}
   <section style="border-bottom: 2px solid #f8ad32; margin-bottom: 15px">
         <h2>{{ categorie.0.categorie_nom }}</h2>
   </section>
 
-  <div class="row">
+  <div class="row" style="padding-bottom: 10px;">
   {% for article in categorie.1 %}
     <div class="col-sm-4">
       <div class="category-forum">

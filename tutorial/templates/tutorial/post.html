@@ -1,6 +1,71 @@
 {% extends "tutorial/base.html" %}
 {% block content %}
-{%for s in posts  %}
-<p>{{s.post_texte}}</p>
+  {% load fontawesome %}
+
+<section>
+    Vous êtes ici : <a href="{% url 'home'  %}"> {% fontawesome_icon 'home' %}</a>
+    {% fontawesome_icon 'angle-right'  %}  <a href="{% url 'categories' pk=fil.categorie.id %}">{{fil.forum_id.categorie.categorie_nom}}</a>
+     {% fontawesome_icon 'angle-right'  %}  <a href="{% url 'categorie' pk=fil.forum_id.id  %}">{{fil.forum_id.forum_nom}}</a>
+    {% fontawesome_icon 'angle-right'  %} <strong>{{fil.topic_titre}}</strong>
+    <hr>
+</section>
+<section>
+
+    <div class="row">
+        <div class="col-sm-1">
+        <div class="thumbnail">
+        <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" width="50px">
+        </div><!-- /thumbnail -->
+        </div><!-- /col-sm-1 -->
+
+        <div class="col-sm-11">
+        <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>{{fil.topic_titre}}</h3>
+        <strong>{{fil.topic_createur}}</strong> <span class="text-muted"> <br>{{fil.topic_date_create}}</span>
+        </div>
+        <div class="panel-body">
+        {{fil.content | safe}}
+        </div><!-- /panel-body -->
+        </div><!-- /panel panel-default -->
+        </div><!-- /col-sm-5 -->
+    </div><!-- /row -->
+
+{%for comment in comments %}
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-sm-1">
+        <div class="thumbnail">
+        <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" width="50px">
+        </div><!-- /thumbnail -->
+        </div><!-- /col-sm-1 -->
+
+        <div class="col-sm-11">
+        <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Re {{fil.topic_titre}}</h3>
+        <strong>{{comment.post_createur}}</strong> <span class="text-muted"> <br>{{comment.post_date_create}}</span>
+        </div>
+        <div class="panel-body">
+        {{comment.post_texte | safe}}
+        </div><!-- /panel-body -->
+        </div><!-- /panel panel-default -->
+        </div><!-- /col-sm-5 -->
+    </div><!-- /row -->
 {%endfor%}
+    <div>
+
+
+        {% if user.is_authenticated %}
+  <form action=""  method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+    <input type="submit" value="repondre" class="btn btn-primary" />
+
+</form>
+
+{% endif %}
+
+    </div>
+</section>
 {% endblock %}

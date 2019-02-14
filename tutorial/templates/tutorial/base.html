@@ -40,16 +40,12 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a href="{% url 'home' %}" class="nav-link{% if request.resolver_match.view_name == 'home' %} active{% endif %}">Home</a>
+              <a href="{% url 'home' %}" class="nav-link{% if request.resolver_match.view_name == 'home' %} active{% endif %}">Accueil</a>
             </li>
-            {% if user.is_authenticated %}
-              <li class="nav-item" data-turbolinks="false">
-                <a class="nav-link{% if request.resolver_match.view_name == 'calendar' %} active{% endif %}" href="#">Calendar</a>
-              </li>
-            {% endif %}
+
           </ul>
           <ul class="navbar-nav justify-content-end">
-
+            {% load fontawesome %}
             {% if user.is_authenticated %}
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -60,15 +56,19 @@
                   {% endif %}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                  <h5 class="dropdown-item-text mb-0">{{ user.name }}</h5>
-                  <p class="dropdown-item-text text-muted mb-0">{{ user.email }}</p>
+                  <a href="#" class="dropdown-item-text mb-0" style="color:black !important">{% fontawesome_icon 'user'  %} {{ user.username  }}</a>
                   <div class="dropdown-divider"></div>
-                  <a href="{% url 'signout' %}". class="dropdown-item">Sign Out</a>
+                  <a href="#" class="dropdown-item" style="color:black !important">{% fontawesome_icon 'cog'  %} Mes paramètres</a>
+                  <div class="dropdown-divider"></div>
+                  <a href="{% url 'logout' %}" class="dropdown-item" style="color:black !important">{% fontawesome_icon 'sign-out-alt'  %} Deconnexion</a>
                 </div>
               </li>
             {% else %}
               <li class="nav-item">
-                <a href="{% url 'signin' %}" class="nav-link">Sign In</a>
+                <a href="{% url 'login' %}" class="nav-link">Connexion</a>
+              </li>
+             <li class="nav-item">
+                <a href="{% url 'signup' %}" class="nav-link">Inscription</a>
               </li>
             {% endif %}
           </ul>

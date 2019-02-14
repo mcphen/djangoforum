@@ -4,30 +4,27 @@
 
 <section>
     Vous êtes ici : <a href="{% url 'home'  %}"> {% fontawesome_icon 'home' %}</a>
-    {% fontawesome_icon 'angle-right'  %}  <a href="{% url 'categories' pk=listforum.categorie.id %}">{{listforum.categorie.categorie_nom}}</a>
-    {% fontawesome_icon 'angle-right'  %} <strong>{{listforum.forum_nom}}</strong>
+
+    {% fontawesome_icon 'angle-right'  %} <strong>{{listforum.categorie_nom}}</strong>
     <hr>
 </section>
 
-{% if user.is_authenticated %}
-<a href="{% url 'nouveau_sujet' pk=uri %}" class="btn btn-primary">Créer un sujet</a>
 
-{% endif %}
 
-{%for s in topics %}
+{%for s in forums %}
     <div class="row category-forum2">
         <div class="col-sm-6">
-            <a href="{% url 'topics' uri=uri pk=s.0.pk %}" class="topicslinks">
+            <a href="{% url 'topics' uri=s.0.forum_id.id pk=s.0.pk %}" class="topicslinks">
                 <h3>{{s.0.topic_titre}}</h3>
                 <p>par <strong>{{s.0.topic_createur}}</strong> </p>
             </a>
         </div>
         <div class="col-sm-3">
-             <span>Réponse : {{s.0.name_answer}}</span><br>
+              <span>Réponse : {{s.0.name_answer}}</span><br>
              <span>Visite : {{s.0.topic_vu}}</span>
         </div>
         <div class="col-sm-3">
-            {% if not s.1.post_createur %}
+             {% if not s.1.post_createur %}
                 <span>Aucune réponse obtenue</span>
             {%else %}
                 <span>Dernier message par {{s.1.post_createur}}</span><br>{{s.1.post_date_create}}

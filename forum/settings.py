@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'tutorial',
     'tinymce',
     'fontawesome',
+    'crispy_forms',
 
     
 ]
@@ -134,3 +135,16 @@ MEDIA_URL= "/media/"
 # default uses locally shipped version at 'fontawesome/css/font-awesome.min.css'
 FONTAWESOME_CSS_URL = '//cdn.example.com/fontawesome-min.css'  # absolute url
 FONTAWESOME_CSS_URL = 'myapp/css/fontawesome.min.css'  # relative url
+
+
+LOGOUT_REDIRECT_URL = '/forum'
+
+LOGIN_REDIRECT_URL = '/forum'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'sdecreazybang@gmail.com'
+EMAIL_HOST_PASSWORD = 'AAAAbang98++'
+EMAIL_PORT = 587
