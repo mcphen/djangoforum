@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74e2059e-bb93-4bb5-a33c-9d4bb642959e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forum/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth_settings.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/auth_helper.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/templates/tutorial/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/templates/tutorial/base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +20,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tutorial/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
+            <state relative-caret-position="918">
               <caret line="58" column="36" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="36" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -31,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/forum/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+            <state relative-caret-position="309">
+              <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -43,7 +41,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/forum/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
+            <state relative-caret-position="306">
               <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
               <folding>
                 <element signature="e#629#661#0" expanded="true" />
@@ -55,7 +53,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tutorial/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="119">
               <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
@@ -73,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+            <state relative-caret-position="68">
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -97,8 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tutorial/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="173" lean-forward="true" selection-start-line="173" selection-end-line="173" />
+            <state relative-caret-position="2584">
+              <caret line="173" selection-start-line="173" selection-end-line="173" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -109,7 +107,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tutorial/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="187">
               <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
@@ -179,12 +177,12 @@
         <option value="$PROJECT_DIR$/tutorial/templates/tutorial/acc_active_email.html" />
         <option value="$PROJECT_DIR$/tutorial/templates/tutorial/message_confirmation.html" />
         <option value="$PROJECT_DIR$/tutorial/templates/tutorial/test.html" />
-        <option value="$PROJECT_DIR$/tutorial/templates/tutorial/base.html" />
         <option value="$PROJECT_DIR$/tutorial/admin.py" />
         <option value="$PROJECT_DIR$/tutorial/models.py" />
         <option value="$PROJECT_DIR$/forum/urls.py" />
         <option value="$PROJECT_DIR$/tutorial/views.py" />
         <option value="$PROJECT_DIR$/forum/settings.py" />
+        <option value="$PROJECT_DIR$/tutorial/templates/tutorial/base.html" />
       </list>
     </option>
   </component>
@@ -202,7 +200,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -220,10 +217,24 @@
               <item name="forum" type="462c0819:PsiDirectoryNode" />
               <item name="tutorial" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="forum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="forum" type="462c0819:PsiDirectoryNode" />
+              <item name="tutorial" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="forum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="forum" type="462c0819:PsiDirectoryNode" />
+              <item name="tutorial" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="tutorial" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Course" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -303,7 +314,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25074404" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -350,9 +360,7 @@
     <entry file="file://$PROJECT_DIR$/forums/templates/forums/base.html" />
     <entry file="file://$PROJECT_DIR$/forums/urls.py" />
     <entry file="file://$PROJECT_DIR$/tutorial/static/app.css" />
-    <entry file="file://$PROJECT_DIR$/oauth_settings.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth_settings.yml" />
     <entry file="file://C:/wamp64/www/moodle/theme/boost/scss/moodle.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -472,56 +480,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/message_confirmation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forum/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-          <folding>
-            <element signature="e#629#661#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tutorial/dumps/tutorial.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/auth_helper.py" />
     <entry file="file://$PROJECT_DIR$/tutorial/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="918">
           <caret line="58" column="36" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="36" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -529,29 +494,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/auth_helper.py">
+    <entry file="file://$PROJECT_DIR$/forum/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
+        <state relative-caret-position="306">
+          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#629#661#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/views.py">
+    <entry file="file://$PROJECT_DIR$/tutorial/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="173" lean-forward="true" selection-start-line="173" selection-end-line="173" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tutorial/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        <state relative-caret-position="119">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -565,10 +521,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2584">
+          <caret line="173" selection-start-line="173" selection-end-line="173" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/message_confirmation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/forum/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+        <state relative-caret-position="309">
+          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorial/templates/tutorial/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
