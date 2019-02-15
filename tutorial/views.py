@@ -28,7 +28,7 @@ def profil(request, id):
   pass
 
 def home(request):
-  categories = Forum_categorie.objects.all()
+  categories = Forum_categorie.objects.order_by('order_place')
   listforum = Forum_forum.objects.all()
 
 
