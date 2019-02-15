@@ -7,6 +7,7 @@ from tinymce.models import HTMLField
 
 class Forum_categorie(models.Model):
     categorie_nom = models.CharField(max_length=255)
+    order_place = models.IntegerField()
 
     def __str__(self):
         return self.categorie_nom
