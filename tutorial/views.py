@@ -5,8 +5,8 @@ from django.urls import reverse
 from .forms import *
 from django.contrib.auth import logout
 
-
-from .models import Forum_categorie, Forum_topics, Forum_forum, Forum_post
+from django.utils import timezone
+from .models import Forum_categorie, Forum_topics, Forum_forum, Forum_post, User_profil, Topics_suivi
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.db.models import Count, F, Max
@@ -22,10 +22,24 @@ from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 
 
+def profil_edit(request, id):
+    post = get_object_or_404(User_profil, user=id)
+    if request.method == "POST":
+        form = EditProfil(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.edit_date = timezone.now()
 
+            post.save()
+            return redirect('profil', id=id)
+    else:
+        form = EditProfil(instance=post)
+    return render(request, 'tutorial/profil_edit.html', {'form': form})
 
 def profil(request, id):
-  pass
+    #infos = get_object_or_404(User_profil, user=id)
+    profile = get_object_or_404(User, pk=id)
+    return render(request, 'tutorial/profil.html', locals())
 
 def home(request):
   categories = Forum_categorie.objects.order_by('order_place')
@@ -48,6 +62,8 @@ def signup(request):
             users = form.save(commit=False)
             users.is_active = False
             users.save()
+            profil = User_profil(prenom=form.cleaned_data["prenom"], nom=form.cleaned_data["nom"], user=users)
+            profil.save()
             current_site = get_current_site(request)
             mail_subject = 'Activate your blog account.'
             message = render_to_string('tutorial/acc_active_email.html', {
@@ -138,9 +154,11 @@ def nouveau_sujet(request, pk):
       title.topic_vu = 0
       title.categorie = listforum.categorie
       title.save()
-
+      topic_suivi = Topics_suivi(sujet_suivi=title, user_suivi=user)
+      topic_suivi.save()
       Forum_forum.objects.filter(pk=pk).update(last_post=title.id)
       Forum_topics.objects.filter(pk=title.id).update(topic_last_post=title.id)
+
 
       return redirect('categorie', pk=pk)
   return render(request, 'tutorial/test.html', locals())
@@ -151,7 +169,7 @@ def topics(request, uri, pk):
   comments = Forum_post.objects.filter(topic_id=pk)
   sujetform = TopicForm()
   form = PostForm()
-
+  sujetsuivis = Topics_suivi.objects.filter(sujet_suivi=fil)
   if request.method == 'POST':
     form = PostForm(request.POST)
     user = request.user
@@ -168,6 +186,25 @@ def topics(request, uri, pk):
 
       Forum_forum.objects.filter(pk=fil.forum_id.id).update(last_post=post.id)
       Forum_topics.objects.filter(pk=fil.id).update(topic_last_post=post.id)
+
+
+
+      for s in sujetsuivis:
+          current_site = get_current_site(request)
+          mail_subject = 'Nouvelle réponse sur le topics "' + s.sujet_suivi.topic_titre+'" que vous suivez sur '+current_site.domain
+          message = render_to_string('tutorial/reponse_topic_email.html', {
+              'user': s.user_suivi,
+              'domain': current_site.domain,
+              'sujet' : s.sujet_suivi,
+              'uri' : uri,
+              'pk' : pk
+            })
+          to_email = s.user_suivi.email
+          email = EmailMessage(
+                        mail_subject, message, to=[to_email]
+            )
+          email.send()
+
 
       return redirect('topics', uri=uri, pk=pk)
   return render(request, 'tutorial/post.html', locals())

@@ -102,3 +102,16 @@ body {
 .panel{
   border : 1px solid #dddddd;
 }
+
+.info_compte
+{
+  margin : 5px 15px 15px 1px;
+  padding : 5px 10px 15px;
+  border : 1px solid #80808047;
+  box-shadow: 2px 5px 8px #888888;
+
+
+}
+.bg-dark{
+  background-color : #084561 !important;
+}

@@ -1,9 +1,11 @@
 {% extends "tutorial/base.html" %}
 {% block content %}
 {% load crispy_forms_tags %}
-
-<section>
-    Vous êtes ici : <a href="#"> Accueil</a>  <i class='fas fa-angle-right'></i> <a href="#">{{listforum.categorie.categorie_nom}}</a>  <i class='fas fa-angle-right'></i> <strong>{{listforum.forum_nom}}</strong>
+{% load fontawesome %}
+<section style="margin-top: 10px;">
+    Vous êtes ici : <a href="{% url 'home'  %}"> {% fontawesome_icon 'home' %}</a>
+    {% fontawesome_icon 'angle-right'  %}  <a href="{% url 'categories' pk=listforum.categorie.id %}">{{listforum.categorie.categorie_nom}}</a>
+    {% fontawesome_icon 'angle-right'  %} <strong>{{listforum.forum_nom}}</strong>
     <hr>
 </section>
 <form action=""  method="post">

@@ -52,10 +52,15 @@ class User_profil(models.Model):
     prenom = models.CharField(max_length=255, null=True)
     nom  = models.CharField(max_length=255, null=True)
     date_naissance =  models.DateTimeField( null=True)
-    sexe = models.CharField(max_length=2, null=True)
+    #sexe = models.CharField(max_length=2, null=True)
     tel = models.CharField(max_length=55, null=True)
-    site_web = models.CharField(max_length=255, null=True)
-    facebook = models.CharField(max_length=255, null=True)
-    linkedin = models.CharField(max_length=255, null=True)
+    site_web = models.URLField(max_length=255, null=True)
+    facebook = models.URLField(max_length=255, null=True)
+    linkedin = models.URLField(max_length=255, null=True)
     biographie= HTMLField( null=True)
+    edit_date=models.DateTimeField(
+        blank=True, null=True)
 
+class Topics_suivi(models.Model):
+    sujet_suivi = models.ForeignKey(Forum_topics, on_delete=models.CASCADE)
+    user_suivi =  models.ForeignKey(User,on_delete=models.CASCADE)

@@ -1,0 +1,115 @@
+{% extends "tutorial/base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load fontawesome %}
+
+<section style="margin-top: 10px;">
+    Vous êtes ici : <a href="{% url 'home'  %}"> {% fontawesome_icon 'home' %}</a>
+    {% fontawesome_icon 'angle-right'  %} <strong>Profil</strong>
+    <hr>
+</section>
+<div class="row" style="margin-top : 10px">
+
+    <div class="col-md-3">
+        <aside class="profile-nav alt">
+            <section class="card">
+                <div class="card-header user-header alt bg-dark">
+                    <div class="text-center">
+                        <a href="#">
+                            {% if profile.user_profil.avatar %}
+                            <img class="rounded-circle mx-auto d-block" width="100px" src="{{profile.user_profil.avatar.url}}" alt="Card image cap">
+                            {% else %}
+                              <span class="" style="">
+                                  <i class="far fa-user-circle fa-lg rounded-circle align-self-center mr-2" style="font-size:100px; color:white;padding : 5px "></i>
+                              </span>
+                            {% endif %}
+                        </a>
+                        <div class="text-center" >
+                            <h3 class="text-light display-6">{{ profile.username }}</h3>
+                            {% if profile.user_profil.description_user %}
+                            <p style="color : white">{{ profile.user_profil.description_user  }}</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <ul class="list-group list-group-flush">
+                                        <!-- Information facebook -->
+                                        <!-- Information linkedln -->
+                                        <!-- Information twitter -->
+
+                    {% if profile.pk is user.id %}
+                    <li class="list-group-item">
+                        <a href="{% url 'profil_edit' id=profile.pk %}"> <i class="fa fa-edit"></i> Editer le profil</a>
+                    </li>
+                    {% endif %}
+                                            
+                </ul>
+
+            </section>
+        </aside>
+    </div>
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-text" style="padding-left: 15px;">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home">
+                        {% if profile.user_profil.prenom and profile.user_profil.nom %}
+                        <div class="info_compte">
+                            <h2>A propos de moi</h2>
+                            <span>{{ profile.user_profil.prenom  }} {{ profile.user_profil.nom  }}</span><br>
+                            {% if profile.user_profil.date_naissance %}
+                             <span>Date de naissance: {{ profile.user_profil.date_naissance|date:'d E'  }} </span>
+                            {% endif %}
+
+                            {% if profile.user_profil.site_web or profile.user_profil.facebook or profile.user_profil.linkedin %}
+                            <div class="row" style="padding-top:10px">
+                                {% if profile.user_profil.site_web %}
+                                <div class="col-sm-4">
+                                    <h5>Site web</h5>
+                                    <span><a href="{{profile.user_profil.site_web }}" target="_blank">{{profile.user_profil.site_web|truncatechars_html:20 }}</a></span>
+                                </div>
+                                {% endif %}
+                                {% if profile.user_profil.facebook %}
+                                <div class="col-sm-4">
+                                    <h5>Facebook</h5>
+                                    <a href="{{profile.user_profil.facebook}}" target="_blank">{{profile.user_profil.facebook|truncatechars_html:20 }}</a>
+                                </div>
+                                {% endif %}
+                                {% if profile.user_profil.linkedin %}
+                                <div class="col-sm-4">
+                                    <h5>Linkedin</h5>
+                                    <a href="{{profile.user_profil.linkedin}}" target="_blank">{{profile.user_profil.linkedin|truncatechars_html:20 }}</a>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        {% if profile.user_profil.biographie %}
+                        <div class="info_compte">
+                            <h2>Biographie</h2>
+                            <p>{{ profile.user_profil.biographie| safe  }} </p>
+
+
+                        </div>
+                        {% endif %}
+                        <div class="info_compte">
+                            <h2>Information sur le compte</h2>
+                            <p>Inscrit le : {{ profile.date_joined  }} </p>
+                            <p>
+                                <span>Derniere connexion : {{ profile.last_login  }}</span>
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div> </div>
+
+{% endblock %}

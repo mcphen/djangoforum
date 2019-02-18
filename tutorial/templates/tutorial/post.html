@@ -2,7 +2,7 @@
 {% block content %}
   {% load fontawesome %}
 
-<section>
+<section style="margin-top: 10px;">
     Vous êtes ici : <a href="{% url 'home'  %}"> {% fontawesome_icon 'home' %}</a>
     {% fontawesome_icon 'angle-right'  %}  <a href="{% url 'categories' pk=fil.categorie.id %}">{{fil.forum_id.categorie.categorie_nom}}</a>
      {% fontawesome_icon 'angle-right'  %}  <a href="{% url 'categorie' pk=fil.forum_id.id  %}">{{fil.forum_id.forum_nom}}</a>

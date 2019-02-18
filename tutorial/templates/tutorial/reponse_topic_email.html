@@ -1,0 +1,9 @@
+{% autoescape off %}
+Salut {{ user.username }},
+
+    Une nouvelle réponse a été postée sur le topic « {{sujet.topic_titre}} » que vous suivez
+
+S'il vous plaît cliquer sur le lien pour confirmer votre inscription,
+
+http://{{ domain }}{% url 'topics'  uri=uri pk=pk %}
+{% endautoescape %}
