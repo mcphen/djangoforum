@@ -25,7 +25,7 @@ from django.core.mail import EmailMessage
 def profil_edit(request, id):
     post = get_object_or_404(User_profil, user=id)
     if request.method == "POST":
-        form = EditProfil(request.POST, instance=post)
+        form = EditProfil(request.POST, request.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.edit_date = timezone.now()
