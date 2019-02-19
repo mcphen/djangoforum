@@ -13,7 +13,7 @@
           <a href="{% url 'categorie' pk=article.pk  %}" class="category-forum__top">
             <div class="row lien_categorie">
               <div class="sm-3"><img src="{{ article.logo_forum.url }}"  width="50px" height="50px"/></div>
-              <div class="sm-9">
+              <div class="sm-9" style="word-wrap: break-word; width: 200px;">
                 <div>{{ article.forum_nom }}</div>
                 <div class="category-forum__description">{{ article.forum_description }}</div>
               </div>

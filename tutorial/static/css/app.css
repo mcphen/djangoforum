@@ -53,6 +53,8 @@ body {
         margin-top: 10px;
 
     padding-top: 10px;
+    height: 150px;
+    min-height: 150px;
 
 }
 
