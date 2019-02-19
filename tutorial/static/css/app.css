@@ -15,6 +15,30 @@ body {
   white-space: pre-wrap;
 }
 
+@media screen and (max-width: 970px) {
+
+    #catnumber{
+        visibility: hidden;
+        clear: both;
+        float: left;
+        margin: 10px auto 5px 20px;
+        width: 28%;
+        display: none;
+    }
+
+    .topicslinks:link, .topicslinks:visited {
+
+        padding: 0 !important;
+
+    }
+    .lastmessage {
+        margin-top: 0;
+        margin-bottom: 0rem;
+    }
+
+
+}
+
 
 .category-forum__top {
     width: 100%;

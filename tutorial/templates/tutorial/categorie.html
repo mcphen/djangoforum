@@ -19,10 +19,10 @@
         <div class="col-sm-6">
             <a href="{% url 'topics' uri=uri pk=s.0.pk %}" class="topicslinks">
                 <h3>{{s.0.topic_titre}}</h3>
-                <p>par <strong>{{s.0.topic_createur}}</strong> </p>
+                <p class="lastmessage">par <strong>{{s.0.topic_createur}}</strong> </p>
             </a>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3" id="catnumber">
              <span>Réponse : {{s.0.name_answer}}</span><br>
              <span>Visite : {{s.0.topic_vu}}</span>
         </div>
