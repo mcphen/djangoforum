@@ -4,6 +4,12 @@ from .models import Forum_post, Forum_topics, User_profil
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+class EditUser(forms.ModelForm):
+    class Meta:
+        model=User
+        fields=('username',)
+
+
 class EditProfil(forms.ModelForm):
     class Meta:
         model=User_profil

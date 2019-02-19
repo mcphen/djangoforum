@@ -24,17 +24,22 @@ from django.core.mail import EmailMessage
 
 def profil_edit(request, id):
     post = get_object_or_404(User_profil, user=id)
+    u=get_object_or_404(User, pk=id)
     if request.method == "POST":
         form = EditProfil(request.POST, request.FILES, instance=post)
-        if form.is_valid():
+        formuser=EditUser(request.POST,instance=u)
+        if form.is_valid() and formuser.is_valid():
             post = form.save(commit=False)
             post.edit_date = timezone.now()
 
             post.save()
+            p=formuser.save(commit=False)
+            p.save()
             return redirect('profil', id=id)
     else:
+        formuser=EditUser(instance=u)
         form = EditProfil(instance=post)
-    return render(request, 'tutorial/profil_edit.html', {'form': form})
+    return render(request, 'tutorial/profil_edit.html', {'form': form, 'formuser':formuser})
 
 def profil(request, id):
     #infos = get_object_or_404(User_profil, user=id)

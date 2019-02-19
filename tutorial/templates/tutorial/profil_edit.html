@@ -13,7 +13,7 @@
   <div class="col-sm-">
     <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-
+        {{ formuser|crispy }}
         {{ form|crispy }}
 
 
