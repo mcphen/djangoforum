@@ -16,7 +16,7 @@ class Forum_forum(models.Model):
     forum_nom =  models.CharField(max_length=255)
     forum_description = models.TextField()
     categorie = models.ForeignKey(Forum_categorie, on_delete=models.CASCADE)
-    last_post = models.IntegerField(default=None)
+    last_post = models.ForeignKey('Forum_post', related_name='last_forum_post', blank=True, null=True, on_delete=models.CASCADE)
     logo_forum = models.ImageField(upload_to="photos/")
     forum_actived = models.IntegerField()
 

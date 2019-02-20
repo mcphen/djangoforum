@@ -55,7 +55,6 @@ def home(request):
 
   for cat in categories:
     cat_forum = listforum.filter(categorie=cat)
-
     forum_t.append((cat, cat_forum))
 
   return render(request, 'tutorial/home.html', locals())

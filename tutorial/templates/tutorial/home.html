@@ -19,16 +19,21 @@
               </div>
             </div>
           </a>
-      <!--
-        <hr>
-        <a title="[CSS] Media-queries - les résolutions" href="#" class="category-forum__bottom">
+
+        <hr>{% if article.last_post %}
+        <a title="{{article.last_post.topic_id.topic_titre}}" href="{% url 'topics' uri=article.id pk=article.last_post.topic_id.id %}" class="category-forum__bottom">
 
         <strong><span class="category-forum__last-msg">Dernier message :</span></strong>
         <br>
+
         <div class="category-forum__last-msg-link">
-        [CSS] Media-queries - les résolutions
+        {{article.last_post.topic_id.topic_titre}}
         </div>
-        </a>-->
+        </a>
+        {% else %}
+        <div class="category-forum__last-msg-link">
+          <strong style="margin-left:5px"><span class="category-forum__last-msg">Aucun message posté </span></strong></div>
+        {% endif %}
       </div>
 
 
