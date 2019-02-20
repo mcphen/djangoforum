@@ -91,9 +91,9 @@
                         </a>
                         <div class="dropdown-menu">
                              <a href="{% url 'profil' id=user.pk %}" class="dropdown-item-text mb-0" style="color:black !important">{% fontawesome_icon 'user'  %} {{ user.user_profil.prenom  }}  {{ user.user_profil.nom  }}</a>
-                            <div class="dropdown-divider"></div>
+                           <!-- <div class="dropdown-divider"></div>
                             <a href="#" class="dropdown-item" style="color:black !important">{% fontawesome_icon 'cog'  %} Mes paramètres</a>
-                            <div class="dropdown-divider"></div>
+                           --> <div class="dropdown-divider"></div>
                             <a href="{% url 'logout' %}" class="dropdown-item" style="color:black !important">{% fontawesome_icon 'sign-out'  %} Deconnexion</a>
 
                         </div>
