@@ -160,7 +160,7 @@ def nouveau_sujet(request, pk):
       title.save()
       topic_suivi = Topics_suivi(sujet_suivi=title, user_suivi=user)
       topic_suivi.save()
-      Forum_forum.objects.filter(pk=pk).update(last_post=title.id)
+      #Forum_forum.objects.filter(pk=pk).update(last_post=title)
       Forum_topics.objects.filter(pk=title.id).update(topic_last_post=title.id)
 
 
