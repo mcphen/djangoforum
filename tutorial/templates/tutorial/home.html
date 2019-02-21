@@ -1,8 +1,17 @@
 {% extends "tutorial/base.html" %}
 {% block content %}
-<div class="alert alert-info" role="alert" style="margin-top:15px">
 
-    <p>Les forums vous permettent de venir poser vos questions aux autres membres mais aussi de s’entraider ou <b>tout simplement de discuter.</b>
+<div id="banniere">
+
+                    <div id="bann_center">
+                        <h4 class="text-center ">C'est à vous de prendre la parole!</h4>
+                    </div>
+
+</div>
+<div  style="margin-top:15px;">
+
+
+    <p>Bonjour à toi! Ces forums vous permettent de venir poser vos questions aux autres membres mais aussi de s’entraider ou <b>tout simplement de discuter.</b>
         Cela fonctionne également dans l’autre sens: vous pouvez ici aider les autres et proposer des exercices au reste de la communauté.</p>
 </div>
 {% for categorie in forum_t %}
@@ -12,7 +21,7 @@
 
   <div class="row" style="padding-bottom: 10px;">
   {% for article in categorie.1 %}
-    <div class="col-sm-12 col-md-12 col-lg-4">
+    <div class="col-sm-12 col-md-6 col-lg-4">
       <div class="category-forum">
           <a href="{% url 'categorie' pk=article.pk  %}" class="category-forum__top">
             <div class="row lien_categorie">
