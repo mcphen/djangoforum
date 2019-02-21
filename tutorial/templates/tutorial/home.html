@@ -1,6 +1,10 @@
 {% extends "tutorial/base.html" %}
 {% block content %}
+<div class="alert alert-info" role="alert" style="margin-top:15px">
 
+    <p>Les forums vous permettent de venir poser vos questions aux autres membres mais aussi de s’entraider ou <b>tout simplement de discuter.</b>
+        Cela fonctionne également dans l’autre sens: vous pouvez ici aider les autres et proposer des exercices au reste de la communauté.</p>
+</div>
 {% for categorie in forum_t %}
   <section style="border-bottom: 2px solid #f8ad32; margin-bottom: 15px">
         <h2>{{ categorie.0.categorie_nom }}</h2>
