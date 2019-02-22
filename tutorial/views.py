@@ -60,7 +60,7 @@ def home(request):
   categories = Forum_categorie.objects.order_by('order_place')
   listforum = Forum_forum.objects.all()
 
-  x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+  """x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
   if x_forwarded_for:
     ipaddress = x_forwarded_for.split(',')[-1].strip()
   else:
@@ -80,7 +80,7 @@ def home(request):
 
       insert.adress_ip = ipaddress
       insert.date_visit=date.today()
-      insert.save()
+      insert.save()"""
 
 
 
@@ -206,7 +206,7 @@ def nouveau_sujet(request, pk):
 
 def topics(request, uri, pk):
   #Forum_topics.objects.filter(pk=pk).update(topic_vu=F('topic_vu')+1)
-  p=post = get_object_or_404(Forum_topics, pk=pk)
+  """p=post = get_object_or_404(Forum_topics, pk=pk)
   #adress_ip=get_client_ip(request)
   x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
   if x_forwarded_for:
@@ -226,7 +226,7 @@ def topics(request, uri, pk):
       insert.topic = p
       insert.adress_ip = ipaddress
       insert.date_visit=date.today()
-      insert.save()
+      insert.save()"""
 
 
 
