@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
@@ -28,7 +30,7 @@ class Forum_topics(models.Model):
     forum_id = models.ForeignKey(Forum_forum,on_delete=models.CASCADE )
     topic_createur = models.ForeignKey(User,on_delete=models.CASCADE)
     topic_last_post=models.IntegerField(default=None)
-    topic_vu = models.IntegerField(default=None)
+    #topic_vu = models.IntegerField(default=None)
     topic_date_create = models.DateTimeField(default=timezone.now)
     content = HTMLField()
     categorie = models.ForeignKey(Forum_categorie, on_delete=models.CASCADE)
@@ -64,3 +66,28 @@ class User_profil(models.Model):
 class Topics_suivi(models.Model):
     sujet_suivi = models.ForeignKey(Forum_topics, on_delete=models.CASCADE)
     user_suivi =  models.ForeignKey(User,on_delete=models.CASCADE)
+
+
+class TopicView(models.Model):
+    topic = models.ForeignKey(Forum_topics, on_delete=models.CASCADE)
+    adress_ip = models.GenericIPAddressField()
+    date_visit=models.DateField(default=date.today)
+
+class VisitSite(models.Model):
+    adress_ip = models.GenericIPAddressField()
+    date_visit=models.DateField(default=date.today)
+
+class MessageUser(models.Model):
+    expediteur = models.ForeignKey(User_profil, on_delete=models.CASCADE)
+    destinateur = models.ForeignKey(User, on_delete=models.CASCADE)
+    titre_message=models.CharField(max_length=255, null=True)
+    message= HTMLField()
+    pub_date = models.DateTimeField(default=timezone.now)
+    is_readed = models.BooleanField(default=False)
+
+    class Meta:
+        ordering=['pub_date']
+
+    def __str__(self):
+        return self.message
+

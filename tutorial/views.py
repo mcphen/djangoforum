@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect
@@ -6,7 +8,7 @@ from .forms import *
 from django.contrib.auth import logout
 
 from django.utils import timezone
-from .models import Forum_categorie, Forum_topics, Forum_forum, Forum_post, User_profil, Topics_suivi
+from .models import Forum_categorie, Forum_topics, Forum_forum, Forum_post, User_profil, Topics_suivi, TopicView
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.db.models import Count, F, Max
@@ -45,10 +47,18 @@ def profil(request, id):
     #infos = get_object_or_404(User_profil, user=id)
     profile = get_object_or_404(User, pk=id)
     return render(request, 'tutorial/profil.html', locals())
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
 
 def home(request):
   categories = Forum_categorie.objects.order_by('order_place')
   listforum = Forum_forum.objects.all()
+  adress_ip=get_client_ip(request)
 
 
   forum_t = []
@@ -118,8 +128,8 @@ def categorie(request, pk):
 
   uri=pk
   topics = []
-  p = Forum_topics.objects.annotate(name_answer=Count('forum_post')).filter(forum_id=pk).order_by('-topic_date_create')
-  topic = Forum_topics.objects.annotate(name_answer=Count('forum_post'), last_email=Max('forum_post__post_createur')).filter(forum_id=pk)
+  p = Forum_topics.objects.annotate(name_answer=Count('forum_post'), topic_vu=Count('topicview')).filter(forum_id=pk).order_by('-topic_date_create')
+  topic = Forum_topics.objects.annotate(name_answer=Count('forum_post'), topic_vu=Count('topicview')).filter(forum_id=pk)
   for t in p:
     lastpost = Forum_post.objects.filter(topic_id=t).last()
     topics.append((t, lastpost ))
@@ -130,7 +140,7 @@ def categorie(request, pk):
 def categories(request, pk):
   forums=[]
 
-  p = Forum_topics.objects.annotate(name_answer=Count('forum_post')).filter(categorie=pk).order_by('-topic_date_create')
+  p = Forum_topics.objects.annotate(name_answer=Count('forum_post'), topic_vu=Count('topicview')).filter(categorie=pk).order_by('-topic_date_create')
   for t in p:
     lastpost = Forum_post.objects.filter(topic_id=t).last()
     forums.append((t, lastpost ))
@@ -168,7 +178,31 @@ def nouveau_sujet(request, pk):
   return render(request, 'tutorial/test.html', locals())
 
 def topics(request, uri, pk):
-  Forum_topics.objects.filter(pk=pk).update(topic_vu=F('topic_vu')+1)
+  #Forum_topics.objects.filter(pk=pk).update(topic_vu=F('topic_vu')+1)
+  p=post = get_object_or_404(Forum_topics, pk=pk)
+  #adress_ip=get_client_ip(request)
+  x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+  if x_forwarded_for:
+    ipaddress = x_forwarded_for.split(',')[-1].strip()
+  else:
+    ipaddress = request.META.get('REMOTE_ADDR')
+  visit_all = TopicView.objects.all()
+
+  if visit_all:
+      visit_topic = TopicView.objects.filter(topic=p, adress_ip=ipaddress, date_visit=date.today() )
+
+      if not visit_topic:
+          insert = TopicView(topic=p, adress_ip=ipaddress, date_visit=date.today())
+          insert.save()
+  else:
+      insert = TopicView()
+      insert.topic = p
+      insert.adress_ip = ipaddress
+      insert.date_visit=date.today()
+      insert.save()
+
+
+
   fil =get_object_or_404(Forum_topics, pk=pk)
   comments = Forum_post.objects.filter(topic_id=pk)
   sujetform = TopicForm()
