@@ -10,7 +10,7 @@
 </section>
 
 
-
+{% if forums %}
 {%for s in forums %}
     <div class="row category-forum2">
         <div class="col-sm-6">
@@ -33,4 +33,9 @@
         </div>
     </div>
 {%endfor%}
+{% else %}
+<div class="alert alert-info" style="margin : 10px; text-align:center" >
+           <span class="text-center">Aucun sujet n'a été posté dans cette rebrique</span>
+        </div>
+{% endif %}
 {% endblock %}

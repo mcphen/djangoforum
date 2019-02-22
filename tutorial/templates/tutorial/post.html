@@ -76,7 +76,10 @@
     <input type="submit" value="repondre" class="btn btn-primary" />
 
 </form>
-
+{% else%}
+        <div class="alert alert-info" style="margin : 10px" >
+           Vous devez vous <a href="{% url 'login'%}?next={{request.path}}">connecter</a> ou <a href="{% url 'signup' %}">créer un compte</a> pour poster une réponse
+        </div>
 {% endif %}
 
     </div>
