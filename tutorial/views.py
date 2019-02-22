@@ -216,7 +216,7 @@ def topics(request, uri, pk):
   visit_all = TopicView.objects.all()
 
   if visit_all:
-      visit_topic = TopicView.objects.filter(Q(topic=p), Q(adress_ip=ipaddress), Q(date_visit=date.today()) )
+      visit_topic =get_object_or_404(TopicView,Q(topic=p), Q(adress_ip=ipaddress), Q(date_visit=date.today()) ), Q(date_visit=date.today())
 
       if not visit_topic:
           insert = TopicView(topic=p, adress_ip=ipaddress, date_visit=date.today())
