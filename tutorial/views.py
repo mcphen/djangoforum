@@ -8,10 +8,10 @@ from .forms import *
 from django.contrib.auth import logout
 
 from django.utils import timezone
-from .models import Forum_categorie, Forum_topics, Forum_forum, Forum_post, User_profil, Topics_suivi, TopicView
+from .models import Forum_categorie, Forum_topics, Forum_forum, Forum_post, User_profil, Topics_suivi, TopicView, VisitSite
 
 from django.http import HttpResponse, HttpResponseRedirect
-from django.db.models import Count, F, Max
+from django.db.models import Count, Q, Max
 
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
@@ -56,9 +56,36 @@ def get_client_ip(request):
     return ip
 
 def home(request):
+
   categories = Forum_categorie.objects.order_by('order_place')
   listforum = Forum_forum.objects.all()
-  adress_ip=get_client_ip(request)
+
+  x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+  if x_forwarded_for:
+    ipaddress = x_forwarded_for.split(',')[-1].strip()
+  else:
+    ipaddress = request.META.get('REMOTE_ADDR')
+
+  visit_all = VisitSite.objects.all()
+
+
+  if visit_all:
+      visit_topic =get_object_or_404(VisitSite, Q(adress_ip=ipaddress), Q(date_visit=date.today()))
+
+      if not visit_topic:
+        insert = VisitSite( adress_ip=ipaddress, date_visit=date.today())
+        insert.save()
+  else:
+      insert = VisitSite()
+
+      insert.adress_ip = ipaddress
+      insert.date_visit=date.today()
+      insert.save()
+
+
+
+
+
 
 
   forum_t = []
@@ -189,7 +216,7 @@ def topics(request, uri, pk):
   visit_all = TopicView.objects.all()
 
   if visit_all:
-      visit_topic = TopicView.objects.filter(topic=p, adress_ip=ipaddress, date_visit=date.today() )
+      visit_topic = TopicView.objects.filter(Q(topic=p), Q(adress_ip=ipaddress), Q(date_visit=date.today()) )
 
       if not visit_topic:
           insert = TopicView(topic=p, adress_ip=ipaddress, date_visit=date.today())
