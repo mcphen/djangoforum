@@ -44,6 +44,10 @@
                     <li class="list-group-item">
                         <a href="{% url 'profil_edit' id=profile.pk %}"> <i class="fa fa-edit"></i> Editer le profil</a>
                     </li>
+                    {% else %}
+                    <li class="list-group-item">
+                        <a href="{% url 'send_messages' id=profile.pk %}"> {% fontawesome_icon 'envelope'  %} Envoyer un message</a>
+                    </li>
                     {% endif %}
                                             
                 </ul>
@@ -100,7 +104,7 @@
                             <h2>Information sur le compte</h2>
                             <p>Inscrit le : {{ profile.date_joined  }} </p>
                             <p>
-                                <span>Derniere connexion : {{ profile.last_login  }}</span>
+                                <span>Derniere connexion : <span class="dernieredate">{{ profile.last_login|date:"c" }}</span></span>
                             </p>
 
                         </div>
@@ -111,5 +115,7 @@
 
         </div>
     </div> </div>
+<script>
 
+</script>
 {% endblock %}

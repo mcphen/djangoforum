@@ -1,0 +1,47 @@
+{% extends "tutorial/base.html" %}
+{% block content %}
+
+{% load fontawesome %}
+<section style="margin-top: 10px;">
+    Vous êtes ici : <a href="{% url 'home'  %}"> {% fontawesome_icon 'home' %}</a>
+    {% fontawesome_icon 'angle-right'  %} <strong>Message privé</strong>
+    <hr>
+</section>
+
+<section>
+    {% if messages %}
+    <table class="table table-striped">
+                <tbody>
+    {% for message in messages %}
+
+
+
+            {% if message.last_message.is_readed is True %}
+                    <tr style="background : white">
+                      <th scope="col">#</th>
+                      <th scope="col"><a href="{% url 'voir_message' id=message.pk %}">{{message.titre_message}}</a></th>
+                      <th scope="col">{{message.msg}} message(s)</th>
+                      <th scope="col">{{message.last_message.answer_date}}</th>
+                    </tr>
+            {% else %}
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col"><a href="{% url 'voir_message' id=message.pk %}">{{message.titre_message}}</a></th>
+                      <th scope="col">{{message.msg}} message(s)</th>
+                      <th scope="col">{{message.last_message.answer_date}}</th>
+                    </tr>
+            {% endif %}
+                </tbody>
+
+
+
+    {% endfor %}<tbody>
+            </table>
+    {% else %}
+        <h2 style="text-align: center">Aucun message</h2>
+    {% endif %}
+</section>
+
+
+
+{% endblock %}

@@ -11,6 +11,7 @@
 <div  style="margin-top:15px;">
 
 
+
     <p>Bonjour à toi! Ces forums vous permettent de venir poser vos questions aux autres membres mais aussi de s’entraider ou <b>tout simplement de discuter.</b>
         Cela fonctionne également dans l’autre sens: vous pouvez ici aider les autres et proposer des exercices au reste de la communauté.</p>
 </div>
@@ -56,5 +57,39 @@
   </div>
 
 {% endfor %}
+<section style="border-bottom: 2px solid #f8ad32; margin-bottom: 15px">
+        <h2>Liste des derniers sujets</h2>
 
+  </section>
+<div>
+{% for t in listtopic %}
+
+        <div class="row" style="padding : 5px">
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <a href="{% url 'topics' uri=t.forum_id.id pk=t.pk %}"> <span style="font-size: 1.5em;">{{t.topic_titre}}</span></a>
+
+             <br>
+                <span>Par {{t.topic_createur}}</span>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4" style="text-align: left">
+                <span class="topicdate">{{t.topic_date_create|date:"c"}}</span></span>
+            </div>
+
+        </div>
+
+    {% endfor %}
+</div>
+<section style="border-bottom: 2px solid #f8ad32; margin-bottom: 15px">
+        <h2>Statistiques</h2>
+
+  </section>
+<div style="margin-left:auto" >
+<ul class="list-inline">
+    <li class="list-inline-item"><strong>{{msgcount}}</strong> messages au total</li>-
+    <li class="list-inline-item"><strong>{{topicount}}</strong> sujets au total</li>-
+    <li class="list-inline-item"><strong>{{usercount}} </strong>membres au total</li>
+</ul>
+    <br>
+    <span class="lastmember"> Notre membre le plus récent est <a href="{% url 'profil' id=listuser.id %}">{{listuser}}</a></span>
+</div>
 {% endblock %}

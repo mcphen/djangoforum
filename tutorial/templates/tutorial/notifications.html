@@ -1,0 +1,40 @@
+{% extends "tutorial/base.html" %}
+{% block content %}
+
+{% load fontawesome %}
+<section style="margin-top: 10px;">
+    Vous êtes ici : <a href="{% url 'home'  %}"> {% fontawesome_icon 'home' %}</a>
+    {% fontawesome_icon 'angle-right'  %} <strong>Notifications</strong>
+    <hr>
+</section>
+
+<section>
+    {% if notifications %}
+    <h2>Notifications non lues</h2>
+    <table class="table table-striped">
+                <tbody>
+    {% for n in notifications %}
+        {% if n.is_readed is False %}
+
+
+
+                    <tr>
+
+                      <th scope="col"><a href="{% url 'view_notification' id=n.pk%}">Le sujet "{{n.topic.topic_titre}}" contient de nouvelles réponses</a></th>
+                      <th scope="col"></th>
+                      <th scope="col">{{n.topic.topic_last_post.post_date_create}}</th>
+                    </tr>
+
+
+        {% endif %}
+    {% endfor %} </tbody>
+
+            </table>
+    {% else %}
+        <h2 style="text-align: center">Aucune notification</h2>
+    {% endif %}
+</section>
+
+
+
+{% endblock %}

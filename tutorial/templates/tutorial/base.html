@@ -18,6 +18,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
@@ -48,6 +49,7 @@
       integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
      <script src="{% static '/js/tinymce/tinymce.min.js' %}"></script>
+    <script src="{% static '/js/momentdate.js' %}"></script>
      <script type="text/javascript" src="{% static '/js/tinymce/custom.js' %}" ></script>
 
     <!-- Load jQuery
@@ -80,7 +82,7 @@
 
 <nav class="navbar navbar-expand-lg fixed-top "  style="background: #084561;border-bottom: 3px solid #f8ad32; color : #f2f2f2">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}"><img src="http://enockmambou.net/forum//img/Supdeco.png" style="width:35px; height:35px;" alt="logo"></a>
+        <a class="navbar-brand" href="{% url 'home' %}">LISANGA</a>
         <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -93,23 +95,49 @@
 
                 <ul class="navbar-nav ml-auto" id="">
                   <li class="nav-item">
-                    <a href="{% url 'home' %}" class="nav-link{% if request.resolver_match.view_name == 'home' %} active{% endif %}">Accueil</a>
+                    <a href="{% url 'home' %}" class="nav-link{% if request.resolver_match.view_name == 'home' %} active{% endif %}">Accueil </a>
                   </li>
                           <!-- Dropdown -->
                     <li class="nav-item dropdown">
 
-                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle notifications" href="#" id="navbardrop" data-toggle="dropdown">
                             {% if user.user_profil.avatar %}
                               <img src="{{ user.user_profil.avatar.url }}" class="rounded-circle align-self-center mr-2" style="width: 32px;">
                             {% else %}
                               <i class="far fa-user-circle fa-lg rounded-circle align-self-center mr-2" style="width: 32px;"></i>
                             {% endif %}
+                            {% if user.user_profil.get_notifmessage|add:user.user_profil.get_notifications is not  0 %}
+                            <span class="badge badge-danger" style="margin-left: -22px;top: 1px;/*! display: block; */border-radius: 50%;position: absolute;">{{ user.user_profil.get_notifmessage|add:user.user_profil.get_notifications  }}</span>
+                            {% endif %}
                         </a>
                         <div class="dropdown-menu">
-                             <a href="{% url 'profil' id=user.pk %}" class="dropdown-item-text mb-0" style="color:black !important">{% fontawesome_icon 'user'  %} {{ user.user_profil.prenom  }}  {{ user.user_profil.nom  }}</a>
+                             <a href="{% url 'profil' id=user.pk %}" class="dropdown-item-text mb-0" style="color:black !important">{% fontawesome_icon 'user'  %} {{ user.user_profil.prenom  }}  {{ user.user_profil.nom  }} </a>
                            <!-- <div class="dropdown-divider"></div>
                             <a href="#" class="dropdown-item" style="color:black !important">{% fontawesome_icon 'cog'  %} Mes paramètres</a>
                            --> <div class="dropdown-divider"></div>
+                            <a href="{% url 'message' id=user.pk %}"  class="dropdown-item" style="color:black !important">
+
+                                {% if not user.user_profil.get_notifmessage %}
+                                   {% fontawesome_icon 'envelope'  %} Aucun message
+                                {% else %}
+                                <span class="badge badge-danger">{% fontawesome_icon 'envelope'  %} {{ user.user_profil.get_notifmessage  }}</span> Message(s)
+                                {% endif %}
+
+
+                            </a>
+                            <div class="dropdown-divider"></div>
+
+                            <a href="{% url 'notifications' id=user.pk %}"  class="dropdown-item" style="color:black !important">
+
+                                {% if not user.user_profil.get_notifications %}
+                                    {% fontawesome_icon 'bell'  %} Aucune notification
+                                {% else %}
+                                <span class="badge badge-danger"> {% fontawesome_icon 'bell'  %} {{ user.user_profil.get_notifications  }}</span> Notifications(s)
+                                {% endif %}
+
+
+                            </a>
+                            <div class="dropdown-divider"></div>
                             <a href="{% url 'logout' %}" class="dropdown-item" style="color:black !important">{% fontawesome_icon 'sign-out'  %} Deconnexion</a>
 
                         </div>
@@ -161,7 +189,7 @@
                     </div>
                 </div>
             </footer>
-            <!-- /Footer -->
+          <!-- /Footer -->
   </body>
 
 </html>

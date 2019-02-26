@@ -1,0 +1,25 @@
+{% extends "tutorial/base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load fontawesome %}
+<section style="margin-top: 10px;">
+    Vous êtes ici : <a href="{% url 'home'  %}"> {% fontawesome_icon 'home' %}</a>
+    {% fontawesome_icon 'angle-right'  %} <strong>Nouveau message</strong>
+    <hr>
+</section>
+
+<h2>Nouveau message</h2>
+<form method="post">
+ {% csrf_token %}
+
+        {{ form|crispy }}
+        {{ answerform|crispy }}
+
+
+    <div class="form-group">
+      <input type="submit" class="btn btn-success btn-rounded" value="Envoyer" name="Connexion" style="background: #f98008; border: solid 1px #ffffff;">
+    </div>
+  </form>
+
+
+{% endblock %}

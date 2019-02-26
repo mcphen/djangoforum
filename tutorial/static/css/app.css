@@ -15,6 +15,31 @@ body {
   white-space: pre-wrap;
 }
 
+footer{
+  background-color : #084561;
+  border-top: 3px solid #f8ad32;
+  color : #f2f2f2;
+  padding-top : 10px;
+  margin-top: 10px
+
+}
+
+footer a{
+  color : #f8ad32
+}
+
+footer a:hover{
+   color : #f69a04a3;
+   text-decoration: none;
+}
+
+a{
+   color : #131314
+ }
+ a:hover{
+   color : #084561ba;
+   text-decoration:none;
+ }
 @media screen and (max-width: 970px) {
 
     #catnumber{

@@ -1,6 +1,6 @@
 from django import forms
 from froala_editor.widgets import FroalaEditor
-from .models import Forum_post, Forum_topics, User_profil
+from .models import Forum_post, Forum_topics, User_profil, MessageUser, Reponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -9,6 +9,20 @@ class EditUser(forms.ModelForm):
         model=User
         fields=('username',)
 
+
+class AnswerForm(forms.ModelForm):
+    class Meta:
+        model=Reponse
+        fields = ('answer_message',)
+
+    def __init__(self, *args, **kwargs):
+        super(AnswerForm, self).__init__(*args, **kwargs)
+        self.fields['answer_message'].label = "Message"
+
+class  MessageForm(forms.ModelForm):
+    class Meta:
+        model = MessageUser
+        fields = ('titre_message',)
 
 class EditProfil(forms.ModelForm):
     class Meta:

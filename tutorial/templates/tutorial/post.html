@@ -10,7 +10,14 @@
     <hr>
 </section>
 <section>
-
+<ul class="list-inline">
+   <!-- <li class="list-inline-item">
+        <a class="btn btn-info" href="#">{% fontawesome_icon 'flag'  %}Suivre ce topic</a>
+    </li>
+    <li class="list-inline-item">
+        <a class="btn btn-danger" href="#">{% fontawesome_icon 'exclamation'  %} Signaler ce topic</a>
+        </li>-->
+</ul>
     <div class="row">
         <div class="col-sm-1">
         <div class="thumbnail">
@@ -28,7 +35,7 @@
         <div class="panel panel-default">
         <div class="panel-heading">
             <h3>{{fil.topic_titre}}</h3>
-        <a href="{% url 'profil' id=fil.topic_createur.id %}">{{fil.topic_createur}}</a> <span class="text-muted"> <br>{{fil.topic_date_create}}</span>
+        <a href="{% url 'profil' id=fil.topic_createur.id %}">{{fil.topic_createur}}</a> <span class="text-muted"> <br><span class="topicdate">{{fil.topic_date_create|date:"c"}}</span></span>
         </div>
         <div class="panel-body">
         {{fil.content | safe}}
@@ -56,7 +63,7 @@
         <div class="panel panel-default">
         <div class="panel-heading">
             <h3>Re {{fil.topic_titre}}</h3>
-        <a href="{% url 'profil' id=comment.post_createur.id %}">{{comment.post_createur}}</a> <span class="text-muted"> <br>{{comment.post_date_create}}</span>
+        <a href="{% url 'profil' id=comment.post_createur.id %}">{{comment.post_createur}}</a> <span class="text-muted"> <br><span class="postdate">{{comment.post_date_create|date:"c"}}</span></span>
         </div>
         <div class="panel-body">
         {{comment.post_texte | safe}}

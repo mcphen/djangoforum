@@ -1,0 +1,40 @@
+{% extends "tutorial/base.html" %}
+{% block content %}
+
+{% load fontawesome %}
+<section style="margin-top: 10px;">
+    Vous êtes ici : <a href="{% url 'home'  %}"> {% fontawesome_icon 'home' %}</a>
+    {% fontawesome_icon 'angle-right'  %} <a href="{% url 'message' id=user.id %}"> Message privé</a>
+    {% fontawesome_icon 'angle-right'  %} <strong>{{inbox.titre_message}}</strong>
+    <hr>
+</section>
+{% for r in answer_messages %}
+<div class="row" style="margin-bottom : 5px; border-bottom:1px solid #b2b2b2; padding : 5px">
+    <div class="col-sm-1 col-md-1 col-lg-1" >
+        <a href="{% url 'profil' id=r.expediteur.user.id %}">{{r.expediteur.user}}</a> <br>
+        {% if r.expediteur.avatar %}
+            <img src="{{r.expediteur.avatar.url}}" class="img-responsive user-photo" width="100px">
+            {% else %}
+            <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" width="50px">
+            {% endif %}
+    </div>
+    <div class="col-sm-10 col-md-10 col-lg-10" style="margin-left : 20px">
+        <span>{{r.answer_date}}</span> <br>
+        <p>
+            {{r.answer_message|safe}}
+        </p>
+    </div>
+</div>
+{% endfor %}
+<section>
+</section>
+<form action=""  method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+    <input type="submit" value="repondre" class="btn btn-primary" />
+
+</form>
+
+
+{% endblock %}

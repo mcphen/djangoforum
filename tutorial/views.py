@@ -1,6 +1,9 @@
+import json
 from datetime import date
+from itertools import count
 
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
@@ -8,7 +11,8 @@ from .forms import *
 from django.contrib.auth import logout
 
 from django.utils import timezone
-from .models import Forum_categorie, Forum_topics, Forum_forum, Forum_post, User_profil, Topics_suivi, TopicView, VisitSite
+from .models import Forum_categorie, Forum_topics, Forum_forum, Forum_post, User_profil, Topics_suivi, Notifications, Reponse
+   # Answer
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.db.models import Count, Q, Max
@@ -59,6 +63,11 @@ def home(request):
 
   categories = Forum_categorie.objects.order_by('order_place')
   listforum = Forum_forum.objects.all()
+  listuser =  User.objects.last()
+  listtopic =  Forum_topics.objects.order_by('topic_date_create').reverse()[:5]
+  msgcount = Forum_post.objects.all().count()
+  topicount = Forum_topics.objects.all().count()
+  usercount = User.objects.all().count()
 
   """x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
   if x_forwarded_for:
@@ -155,8 +164,8 @@ def categorie(request, pk):
 
   uri=pk
   topics = []
-  p = Forum_topics.objects.annotate(name_answer=Count('forum_post'), topic_vu=Count('topicview')).filter(forum_id=pk).order_by('-topic_date_create')
-  topic = Forum_topics.objects.annotate(name_answer=Count('forum_post'), topic_vu=Count('topicview')).filter(forum_id=pk)
+  p = Forum_topics.objects.annotate(name_answer=Count('forum_post')).filter(forum_id=pk).order_by('-topic_date_create')
+  topic = Forum_topics.objects.annotate(name_answer=Count('forum_post')).filter(forum_id=pk)
   for t in p:
     lastpost = Forum_post.objects.filter(topic_id=t).last()
     topics.append((t, lastpost ))
@@ -167,7 +176,7 @@ def categorie(request, pk):
 def categories(request, pk):
   forums=[]
 
-  p = Forum_topics.objects.annotate(name_answer=Count('forum_post'), topic_vu=Count('topicview')).filter(categorie=pk).order_by('-topic_date_create')
+  p = Forum_topics.objects.annotate(name_answer=Count('forum_post')).filter(categorie=pk).order_by('-topic_date_create')
   for t in p:
     lastpost = Forum_post.objects.filter(topic_id=t).last()
     forums.append((t, lastpost ))
@@ -191,14 +200,14 @@ def nouveau_sujet(request, pk):
       title = sujetform.save(commit=False)
       title.forum_id = get_object_or_404(Forum_forum, pk=pk)
       title.topic_createur = user
-      title.topic_last_post = 0
+
       title.topic_vu = 0
       title.categorie = listforum.categorie
       title.save()
       topic_suivi = Topics_suivi(sujet_suivi=title, user_suivi=user)
       topic_suivi.save()
       #Forum_forum.objects.filter(pk=pk).update(last_post=title)
-      Forum_topics.objects.filter(pk=title.id).update(topic_last_post=title.id)
+      #Forum_topics.objects.filter(pk=title.id).update(topic_last_post=title.id) ceci n'est plus necessaire
 
 
       return redirect('categorie', pk=pk)
@@ -252,24 +261,101 @@ def topics(request, uri, pk):
       Forum_forum.objects.filter(pk=fil.forum_id.id).update(last_post=post.id)
       Forum_topics.objects.filter(pk=fil.id).update(topic_last_post=post.id)
 
-
-
-      for s in sujetsuivis:
-          current_site = get_current_site(request)
-          mail_subject = 'Nouvelle réponse sur le topics "' + s.sujet_suivi.topic_titre+'" que vous suivez sur '+current_site.domain
-          message = render_to_string('tutorial/reponse_topic_email.html', {
-              'user': s.user_suivi,
-              'domain': current_site.domain,
-              'sujet' : s.sujet_suivi,
-              'uri' : uri,
-              'pk' : pk
-            })
-          to_email = s.user_suivi.email
-          email = EmailMessage(
-                        mail_subject, message, to=[to_email]
-            )
-          email.send()
-
+      if request.user != fil.topic_createur:
+          for s in sujetsuivis:
+              current_site = get_current_site(request)
+              mail_subject = 'Nouvelle réponse sur le topics "' + s.sujet_suivi.topic_titre+'" que vous suivez sur '+current_site.domain
+              message = render_to_string('tutorial/reponse_topic_email.html', {
+                  'user': s.user_suivi,
+                  'domain': current_site.domain,
+                  'sujet' : s.sujet_suivi,
+                  'uri' : uri,
+                  'pk' : pk
+                })
+              to_email = s.user_suivi.email
+              email = EmailMessage(
+                            mail_subject, message, to=[to_email]
+                )
+              email.send()
+              notif = Notifications(topic=s.sujet_suivi, user=s.user_suivi)
+              notif.save()
 
       return redirect('topics', uri=uri, pk=pk)
   return render(request, 'tutorial/post.html', locals())
+
+@login_required(login_url='login')
+def send_messages(request, id):
+
+    form = MessageForm(request.POST or None)
+    answerform = AnswerForm(request.POST or None)
+
+    if form.is_valid():
+        message = form.save()
+        answer = answerform.save(commit=False)
+        answer.expediteur = request.user.user_profil
+        answer.destinateur = get_object_or_404(User, pk=id)
+        answer.title = message
+        answer.save()
+        return redirect('profil', id=id)
+
+    return render(request, 'tutorial/sendmessage.html', locals())
+
+@login_required(login_url='login')
+def messages(request, id):
+    user= get_object_or_404(User, pk=id)
+    if request.user == user:
+        messages = MessageUser.objects.annotate(msg=Count('reponse')).filter(reponse__destinateur=user).order_by('-id')
+        return render(request, 'tutorial/messages.html', locals())
+    else:
+        return redirect('home')
+
+
+@login_required(login_url='login')
+def notifications(request, id):
+    user= get_object_or_404(User, pk=id)
+    if request.user == user:
+        notifications = Notifications.objects.filter(user=user).distinct()
+        return render(request, 'tutorial/notifications.html', locals())
+    else:
+        return redirect('home')
+
+@login_required(login_url='login')
+def view_notification(request, id):
+    notif =  get_object_or_404(Notifications, pk=id)
+    Notifications.objects.filter(pk=notif.pk).update(is_readed=True)
+    return redirect('topics', uri=notif.topic.forum_id, pk=notif.topic.id)
+
+
+def voir_message(request, id):
+    inbox = get_object_or_404(MessageUser, pk=id)
+    test =  Reponse.objects.filter(title=inbox).last()
+
+
+
+    user = request.user
+    answer_messages = Reponse.objects.filter(title=inbox)
+    if test.is_readed is False and test.destinateur == request.user:
+        Reponse.objects.filter(pk=test.pk).update(is_readed=True)
+    form = AnswerForm(request.POST or None)
+
+    if form.is_valid():
+        answer = form.save(commit=False)
+        answer.title = inbox
+        #answer.answer_user = request.user
+        answer.expediteur = request.user.user_profil
+        if test.destinateur == request.user:
+            destinateur=test.expediteur
+            answer.destinateur = destinateur.user
+        else:
+            destinateur=test.destinateur
+            answer.destinateur = destinateur
+
+        #answer.title = message
+        answer.save()
+
+
+        MessageUser.objects.filter(pk=inbox.pk).update(last_message=answer)
+
+
+
+    return render(request, 'tutorial/view_message.html', locals())
