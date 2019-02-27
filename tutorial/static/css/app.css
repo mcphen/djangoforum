@@ -1,5 +1,37 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
-  padding-top: 4.5rem;
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+main {
+  margin: 0 auto;
+
+  max-width: 640px;
+  width: 94%;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+
+  text-align: center;
 }
 
 .navbar a {
@@ -35,14 +67,27 @@ footer a:hover{
 }
 
 a{
-   color : #131314
+   color : #1010ac
  }
  a:hover{
-   color : #084561ba;
+
    text-decoration:none;
  }
 @media screen and (max-width: 970px) {
+      h1, h2, h3{
+      font-size : 1.4em;
+      font-weight :600;
+    }
+    .devise{
+      font-size :0.9em
+    }
+    #banniere{
+      height:100px!important
+    }
 
+    body{
+      font-size : 0.9em;
+    }
     #catnumber{
         visibility: hidden;
         clear: both;
