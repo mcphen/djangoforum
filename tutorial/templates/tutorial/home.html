@@ -66,7 +66,7 @@
 
         <div class="row" style="padding : 5px">
             <div class="col-sm-8 col-md-8 col-lg-8">
-                <a href="{% url 'topics' uri=t.forum_id.id pk=t.pk %}"> <span style="font-size: 1.5em;">{{t.topic_titre}}</span></a>
+                <a href="{% url 'topics' uri=t.forum_id.id pk=t.pk %}"> <span style="font-size: 1.1em;">{{t.topic_titre}}</span></a>
 
              <br>
                 <span>Par {{t.topic_createur}}</span>
@@ -89,7 +89,7 @@
     <li class="list-inline-item"><strong>{{topicount}}</strong> sujets au total</li>-
     <li class="list-inline-item"><strong>{{usercount}} </strong>membres au total</li>
 </ul>
-    <br>
+
     <span class="lastmember"> Notre membre le plus récent est <a href="{% url 'profil' id=listuser.id %}">{{listuser}}</a></span>
 </div>
 {% endblock %}
